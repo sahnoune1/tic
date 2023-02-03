@@ -21,6 +21,63 @@ console.log(player.elements.length);
 
 const me = document.querySelector(".player");
 const you = document.querySelector(".enemy");
+
+function test1() {
+  const test = [];
+  for (let y = 0; y < 9; y++) {
+    test[y] = document.querySelector(`.item${y}`);
+  }
+  const winning = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+  for (let q = 0; q < winning.length; q++) {
+    const [a, b, c] = winning[q];
+    if (
+      test[a].innerHTML === "x" &&
+      test[b].innerHTML === "x" &&
+      test[c].innerHTML === "x"
+    ) {
+      alert("we have a winner");
+      location.reload();
+    }
+  }
+}
+
+function test2() {
+  const test = [];
+  for (let y = 0; y < 9; y++) {
+    test[y] = document.querySelector(`.item${y}`);
+  }
+  const winning = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+  for (let q = 0; q < winning.length; q++) {
+    const [a, b, c] = winning[q];
+    if (
+      test[a].innerHTML === "o" &&
+      test[b].innerHTML === "o" &&
+      test[c].innerHTML === "o"
+    ) {
+      alert("we have a winner");
+      location.reload();
+    }
+  }
+}
+
 for (let x = 0; x < 9; x++) {
   const fil = document.querySelector(`.item${x}`);
 
@@ -35,76 +92,8 @@ for (let x = 0; x < 9; x++) {
 
         fil.classList.add("filled");
       }
-      const test = [];
-      for (let y = 0; y < 9; y++) {
-        test[y] = document.querySelector(`.item${y}`);
-      }
-
-      if (
-        test[0].innerHTML === "x" &&
-        test[1].innerHTML === "x" &&
-        test[2].innerHTML === "x"
-      ) {
-        alert("we have a winner");
-        location.reload();
-      }
-      if (
-        test[3].innerHTML === "x" &&
-        test[4].innerHTML === "x" &&
-        test[5].innerHTML === "x"
-      ) {
-        alert("we have a winner");
-        location.reload();
-      }
-      if (
-        test[6].innerHTML === "x" &&
-        test[7].innerHTML === "x" &&
-        test[8].innerHTML === "x"
-      ) {
-        alert("we have a winner");
-        location.reload();
-      }
-      if (
-        test[0].innerHTML === "x" &&
-        test[3].innerHTML === "x" &&
-        test[6].innerHTML === "x"
-      ) {
-        alert("we have a winner");
-        location.reload();
-      }
-      if (
-        test[1].innerHTML === "x" &&
-        test[4].innerHTML === "x" &&
-        test[7].innerHTML === "x"
-      ) {
-        alert("we have a winner");
-        location.reload();
-      }
-
-      if (
-        test[2].innerHTML === "x" &&
-        test[5].innerHTML === "x" &&
-        test[8].innerHTML === "x"
-      ) {
-        alert("we have a winner");
-        location.reload();
-      }
-      if (
-        test[0].innerHTML === "x" &&
-        test[4].innerHTML === "x" &&
-        test[8].innerHTML === "x"
-      ) {
-        alert("we have a winner");
-        location.reload();
-      }
-      if (
-        test[2].innerHTML === "x" &&
-        test[4].innerHTML === "x" &&
-        test[6].innerHTML === "x"
-      ) {
-        alert("we have a winner");
-        location.reload();
-      }
+      test1();
+      test2();
     }
   });
 }
