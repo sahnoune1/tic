@@ -21,7 +21,7 @@ console.log(player.elements.length);
 
 const me = document.querySelector(".player");
 const you = document.querySelector(".enemy");
-
+let w = 0;
 function test1() {
   const test = [];
   for (let y = 0; y < 9; y++) {
@@ -45,11 +45,11 @@ function test1() {
       test[c].innerHTML === "x"
     ) {
       alert("we have a winner");
+      w = 1;
       location.reload();
     }
   }
 }
-
 function test2() {
   const test = [];
   for (let y = 0; y < 9; y++) {
@@ -73,11 +73,26 @@ function test2() {
       test[c].innerHTML === "o"
     ) {
       alert("we have a winner");
+      w = 1;
       location.reload();
     }
   }
 }
+function draw() {
+  let state;
+  const elements = document.querySelectorAll(".item");
+  for (let b = 0; b < elements.length; b++) {
+    if (!elements[b].classList.contains("filled")) {
+      state = false;
+      break;
+    }
+    state = true;
+  }
 
+  if (state === true && w === 0) {
+    alert("draw");
+  }
+}
 for (let x = 0; x < 9; x++) {
   const fil = document.querySelector(`.item${x}`);
 
@@ -95,6 +110,7 @@ for (let x = 0; x < 9; x++) {
       test1();
       test2();
     }
+    draw();
   });
 }
 
